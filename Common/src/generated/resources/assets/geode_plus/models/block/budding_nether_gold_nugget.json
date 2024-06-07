@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "geode_plus:block/budding_nether_gold_nugget"
+  }
+}

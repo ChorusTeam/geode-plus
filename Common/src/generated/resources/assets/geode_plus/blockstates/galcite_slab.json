@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "geode_plus:block/galcite_slab"
+    },
+    "type=double": {
+      "model": "geode_plus:block/galcite"
+    },
+    "type=top": {
+      "model": "geode_plus:block/galcite_slab_top"
+    }
+  }
+}

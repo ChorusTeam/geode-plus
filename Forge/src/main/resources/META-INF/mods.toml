@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[46,)"
+license="Attribution-NonCommercial-ShareAlike 3.0 Unported"
+issueTrackerURL="https://github.com/YeoXuHang/geode-plus/issues"
+[[mods]]
+modId="geode_plus"
+version="${file.jarVersion}"
+displayName="Geode Plus"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/geode-plus"
+logoFile="icon.png"
+authors="YeoXuHang"
+description='''
+A Forge/Fabric mod that add geodes to Minecraft Overworld, Nether and even The End!
+'''
+[[dependencies.geode_plus]]
+modId="forge"
+mandatory=true
+versionRange="[46,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.geode_plus]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,1.20.2)"
+ordering="NONE"
+side="BOTH"

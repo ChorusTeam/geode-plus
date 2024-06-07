@@ -1,0 +1,7 @@
+{
+  "type": "geode_plus:echo_crystal_spike",
+  "feature": [
+    "geode_plus:echo_crystal_spike",
+    "geode_plus:echo_crystal_spike_floor"
+  ]
+}

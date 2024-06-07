@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crystal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "geode_plus:nether_glowstone_cluster_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:nether_glowstone_cluster_block_to_glowstone_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_crystal_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:nether_glowstone_cluster_block_to_glowstone_dust"
+    ]
+  },
+  "sends_telemetry_event": false
+}

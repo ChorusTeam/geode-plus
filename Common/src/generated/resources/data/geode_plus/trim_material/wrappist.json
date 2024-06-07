@@ -1,0 +1,9 @@
+{
+  "asset_name": "wrappist",
+  "description": {
+    "color": "#5E9FCE",
+    "translate": "trim_material.geode_plus.wrappist"
+  },
+  "ingredient": "geode_plus:wrappist_shard",
+  "item_model_index": 0.9
+}

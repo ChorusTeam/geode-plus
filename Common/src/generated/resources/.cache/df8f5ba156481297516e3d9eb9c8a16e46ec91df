@@ -1,0 +1,4 @@
+// 1.20.1	2024-05-27T17:17:39.481602	Tags for minecraft:item mod id geode_plus
+95d0059d5411befa299902d94a544d1d222d9b4e data/forge/tags/items/glass.json
+86aff407133d9c0da86aa42aa17bdb9dca6eab59 data/minecraft/tags/items/trim_materials.json
+e5e301e9477733ff2384c899e7593375c87b29f4 data/minecraft/tags/items/trim_templates.json

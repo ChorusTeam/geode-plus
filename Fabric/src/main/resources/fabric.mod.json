@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "geode_plus",
+  "version": "${version}",
+  "name": "Geode Plus",
+  "description": "A Forge/Fabric mod that add geodes to Minecraft Overworld, Nether and even The End!",
+  "authors": [
+    "YeoXuHang"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/geode-plus",
+    "sources": "https://github.com/YeoXuHang/geode-plus",
+    "issues": "https://github.com/YeoXuHang/geode-plus/issues"
+  },
+  "license": "Attribution-NonCommercial-ShareAlike 3.0 Unported",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.yeoxuhang.geode_plus.FabricMod"
+    ],
+    "client": [
+      "net.yeoxuhang.geode_plus.FabricClient"
+    ]
+  },
+  "mixins": [
+    "geode_plus.mixins.json",
+    "geode_plus.fabric.mixins.json"
+  ],
+  "accessWidener": "geode_plus.aw"
+}
+  

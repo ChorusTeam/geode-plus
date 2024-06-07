@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "geode_plus:block/prismarine_cluster_block"
+  }
+}

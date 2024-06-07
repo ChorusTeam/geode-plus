@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "geode_plus:wrappist_pedestal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wrappist_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "geode_plus:wrappist_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wrappist_shard",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geode_plus:wrappist_pedestal"
+    ]
+  },
+  "sends_telemetry_event": false
+}

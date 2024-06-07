@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "crystals",
+  "ingredients": [
+    {
+      "item": "geode_plus:nether_glowstone_cluster_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:glowstone_dust"
+  }
+}

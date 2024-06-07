@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "geode_plus:nether_ancient_debris_cluster"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "geode_plus:nether_ancient_debris_cluster_block"
+  },
+  "show_notification": true
+}

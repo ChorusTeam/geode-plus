@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "geode_plus:galcite"
+  },
+  "result": "geode_plus:galcite_wall"
+}

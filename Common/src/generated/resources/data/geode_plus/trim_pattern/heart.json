@@ -1,0 +1,7 @@
+{
+  "asset_id": "geode_plus:heart",
+  "description": {
+    "translate": "trim_pattern.geode_plus.heart"
+  },
+  "template_item": "geode_plus:heart_armor_trim_smithing_template"
+}

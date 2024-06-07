@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "geode_plus:item/wrap_armor_trim_smithing_template"
+  }
+}

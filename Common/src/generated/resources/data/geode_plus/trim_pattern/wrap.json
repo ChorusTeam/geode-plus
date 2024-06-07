@@ -1,0 +1,7 @@
+{
+  "asset_id": "geode_plus:wrap",
+  "description": {
+    "translate": "trim_pattern.geode_plus.wrap"
+  },
+  "template_item": "geode_plus:wrap_armor_trim_smithing_template"
+}

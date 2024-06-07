@@ -1,0 +1,46 @@
+{
+  "parent": "builtin/entity",
+  "gui_light": "front",
+  "textures": {
+    "particle": "geode_plus:block/wrappist_pedestal"
+  },
+  "shades": false,
+  "render_type": "cutout",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 75, -45, 0 ],
+      "translation": [ -5, 5, 5 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 75, -45, 0 ],
+      "translation": [ 0, 0, 5 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -45,  0],
+      "translation": [ -4, 7, 0],
+      "scale": [ 1, 1, 1 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 5, -45, 0],
+      "translation": [5.7, 5.5, 7],
+      "scale": [ 1, 1, 1 ]
+    },
+    "gui": {
+      "rotation": [ 30, 45, 0 ],
+      "translation": [ 0.7, 0.7, 0 ],
+      "scale": [ 0.59, 0.59, 0.59 ]
+    },
+    "fixed": {
+      "rotation": [ 0, 180, 0 ],
+      "translation": [ 3, 4, -5],
+      "scale":[ 0.5, 0.5, 0.5]
+    },
+    "ground": {
+      "rotation": [ 0, 0.1, 0 ],
+      "translation": [ -2.2, 5, 2.2],
+      "scale":[ 0.3, 0.3, 0.3]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "crystals",
+  "ingredients": [
+    {
+      "item": "geode_plus:lapis_cluster_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:lapis_lazuli"
+  }
+}

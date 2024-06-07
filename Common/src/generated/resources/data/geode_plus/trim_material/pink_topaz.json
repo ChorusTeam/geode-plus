@@ -1,0 +1,9 @@
+{
+  "asset_name": "pink_topaz",
+  "description": {
+    "color": "#FBB7E7",
+    "translate": "trim_material.geode_plus.pink_topaz"
+  },
+  "ingredient": "geode_plus:pink_topaz",
+  "item_model_index": 0.1
+}

@@ -1,0 +1,23 @@
+{
+  "type": "geode_plus:ocean_crystal_spike",
+  "config": {
+    "cluster_state": {
+      "Name": "geode_plus:prismarine_cluster",
+      "Properties": {
+        "facing": "up",
+        "waterlogged": "false"
+      }
+    },
+    "crystal_direction": "floor",
+    "crystal_state": {
+      "Name": "geode_plus:prismarine_cluster_block"
+    },
+    "xz_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      }
+    }
+  }
+}

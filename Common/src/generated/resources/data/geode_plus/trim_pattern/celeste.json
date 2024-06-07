@@ -1,0 +1,7 @@
+{
+  "asset_id": "geode_plus:celeste",
+  "description": {
+    "translate": "trim_pattern.geode_plus.celeste"
+  },
+  "template_item": "geode_plus:celeste_armor_trim_smithing_template"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "geode_plus:quartz_crystal_spike",
+  "feature": [
+    "geode_plus:quartz_crystal_spike",
+    "geode_plus:quartz_crystal_spike_floor"
+  ]
+}

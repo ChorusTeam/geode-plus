@@ -1,0 +1,23 @@
+{
+  "type": "geode_plus:echo_crystal_spike",
+  "config": {
+    "cluster_state": {
+      "Name": "geode_plus:echo_crystal",
+      "Properties": {
+        "facing": "up",
+        "waterlogged": "false"
+      }
+    },
+    "crystal_direction": "floor",
+    "crystal_state": {
+      "Name": "minecraft:sculk"
+    },
+    "xz_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      }
+    }
+  }
+}

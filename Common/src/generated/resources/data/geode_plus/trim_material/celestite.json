@@ -1,0 +1,9 @@
+{
+  "asset_name": "celestite",
+  "description": {
+    "color": "#B2D3F7",
+    "translate": "trim_material.geode_plus.celestite"
+  },
+  "ingredient": "geode_plus:celestite_shard",
+  "item_model_index": 0.8
+}

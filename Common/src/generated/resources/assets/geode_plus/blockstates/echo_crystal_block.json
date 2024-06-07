@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "geode_plus:block/echo_crystal_block"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "particle": "geode_plus:block/wrappist_cluster",
+    "all": "geode_plus:block/wrappist_cluster"
+  },
+  "shades": false
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "geode_plus:block/emerald_cluster_block"
+    }
+  }
+}
