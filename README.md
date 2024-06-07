@@ -1,6 +1,4 @@
 <div  align="center">
-
-[![Discord Server][yeoxuhangs-server]][yeoxuhangs-invite]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![GeodePlus][geode-plus-mod]][geode-plus-page]
