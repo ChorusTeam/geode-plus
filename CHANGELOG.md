@@ -341,3 +341,5 @@
 * Crash when client setup
 * Configs now work again on server-side
 * Wrappist pedestal can duplicate items
+### Translations
+* zh_cn.json (Junnaturefox)
