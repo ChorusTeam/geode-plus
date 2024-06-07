@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://www.curseforge.com/minecraft/mc-mods/geode-plus">
-    <img src="icon.gif" alt="Logo" width="100" height="100">
+    <img src="https://github.com/YeoXuHang/geode-plus/blob/master/logo.gif" alt="Logo" width="100" height="100">
   </a>
 
 <h1 align="center">Geode+</h1>
