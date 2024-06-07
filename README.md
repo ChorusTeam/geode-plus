@@ -1,6 +1,5 @@
 <div  align="center">
-
-[![Discord Server][yeoxuhangs-server]][yeoxuhangs-invite]
+  
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![GeodePlus][geode-plus-mod]][geode-plus-page]
@@ -37,8 +36,8 @@ A mod that add geodes to Minecraft Overworld, Nether and even The End!
   </p>
 </div>
 
-[issues-shield]:https://img.shields.io/github/issues/YeoXuHang/Geode-Plus?style=for-the-badge
-[issues-url]: https://github.com/YeoXuHang/Geode-Plus/issues
+[issues-shield]:https://img.shields.io/github/issues/YeoXuHang/geode-plus?style=for-the-badge
+[issues-url]: https://github.com/YeoXuHang/geode-plus/issues
 [license-shield]: https://img.shields.io/badge/LICENSE-CC3.0-5BD847?labelColor=2D2D2D&style=for-the-badge
 [license-url]: https://github.com/YeoXuHang/geode-plus/blob/master/LICENSE.md
 [product-screenshot]: logo-for-geode-plus.png
