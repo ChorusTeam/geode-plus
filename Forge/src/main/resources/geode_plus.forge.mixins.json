@@ -13,5 +13,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "geode_plus.forge.refmap.json"
+  "refmap": "geode_plus.forge-refmap.json"
 }

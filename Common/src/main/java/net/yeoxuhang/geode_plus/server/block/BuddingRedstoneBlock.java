@@ -12,7 +12,12 @@ import net.minecraft.world.level.block.RedStoneOreBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
+
+import java.util.Collections;
+import java.util.List;
 
 public class BuddingRedstoneBlock extends RedStoneOreBlock {
     public static final int GROWTH_CHANCE = 5;
@@ -56,6 +61,24 @@ public class BuddingRedstoneBlock extends RedStoneOreBlock {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
+    }
+
+    @Override
+    public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
+        ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
+        ItemStack stone = new ItemStack(BlockRegistry.BUDDING_REDSTONE.get());
+        ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.get());
+        ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_REDSTONE.get());
+        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_REDSTONE.get())){
+            return Collections.singletonList(stone);
+        }
+        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.get())){
+            return Collections.singletonList(deepslate);
+        }
+        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_REDSTONE.get())){
+            return Collections.singletonList(sculk);
+        }
+        return super.getDrops(blockState, builder);
     }
 
     public static boolean canClusterGrowAtState(BlockState p_152735_) {

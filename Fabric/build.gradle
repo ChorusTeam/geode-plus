@@ -1,30 +1,20 @@
 import com.modrinth.minotaur.TaskModrinthUpload
-import com.modrinth.minotaur.dependencies.DependencyType
-import com.modrinth.minotaur.dependencies.ModDependency
-
-import java.util.stream.Collectors
-
-buildscript {
-    repositories {
-        maven { url = 'https://maven.parchmentmc.org' }
-    }
-}
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
 
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
-    id 'maven-publish'
-    id 'idea'
-    id 'java'
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
-    id "net.darkhax.curseforgegradle" version "1.0.7"
+    id "fabric-loom" version "1.5-SNAPSHOT"
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id "net.darkhax.curseforgegradle" version "1.1.18"
     id "com.modrinth.minotaur" version "2.+"
 }
 
-tasks.build.dependsOn(tasks.findByName("shadowJar"))
+tasks.build.dependsOn(shadowJar)
 
 configurations {
     shadow
     implementation.extendsFrom(shadow)
+    implementation.extendsFrom lib
+    api.extendsFrom lib
 }
 shadowJar {
     configurations = [project.configurations.shadow]
@@ -48,35 +38,25 @@ repositories {
         name = "JitPack"
         url = "https://jitpack.io"
     }
-    maven {
-        name = "Modrinth"
-        url = "https://api.modrinth.com/maven"
-        content {
-            includeGroup "maven.modrinth"
-        }
-    }
 }
-
-sourceSets.main.resources.srcDir 'src/generated/resources'
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.layered() {
         officialMojangMappings()
-//        parchment("org.parchmentmc.data:parchment-1.20.1:${parchment_version}@zip")
+        parchment("org.parchmentmc.data:parchment-${minecraft_version}:${parchment_version}@zip")
     }
-
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}+${minecraft_version}"
     implementation project(":Common")
 }
 reg.configureJarTask(shadowJar)
 
 loom {
     accessWidenerPath = project(":Common").file("src/main/resources/geode_plus.aw")
+    mixin.useLegacyMixinAp.set(false)
     runs {
-        def args = ["-Dmixin.debug.export=true"]
+        def args = []
 
         client {
             client()
@@ -104,7 +84,9 @@ processResources {
     }
 
     filesMatching("${mod_id}.mixins.json") {
-        expand "refmap_target": "${archivesBaseName}-"
+        filter { String line ->
+            line.contains(',"refmap": "${refmap_target}refmap.json"') ? null : line
+        }
     }
 }
 
@@ -134,74 +116,48 @@ sourceSets {
     }
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
-}
+remapJar.inputFile.set(shadowJar.archiveFile)
 
-task fabric_checkForRefmap() {
-    doLast {
-        File file1 = remapJar.archiveFile.get().asFile
-        logger.info("Verifying refmap exists...")
-        if (file1.exists()) {
-            FileTree files = zipTree(file1)
-            Set<String> fileNames = files.getFiles().stream().map(file -> file.getName()).collect(Collectors.toSet())
-
-            String refmap = "${archivesBaseName}-refmap.json"
-            if (!fileNames.contains(refmap)) {
-                throw new IllegalStateException("Refmap is missing.")
-            }
-        } else {
-            throw new IllegalStateException("File is missing.")
-        }
-        logger.info("Refmap found!")
-    }
-}
-
-String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
-
-
-task fabric_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+task fabric_publishCurseForge(type: TaskPublishCurseForge) {
     apiToken = "$System.env.CURSEFORGE_KEY"
-    int projectId = 443694
+    int projectId = Integer.parseInt("${project.fabric_curseforge_id}")
+    String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
 
     def mainFile = upload(projectId, remapJar)
     mainFile.changelog = changelogText
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "${project.release_type}"
     mainFile.addGameVersion("${project.minecraft_version}")
-    mainFile.addRequirement("corgilib")
-    mainFile.addModLoader("fabric")
+    mainFile.addModLoader("fabric", "quilt")
 }
 
 
 // Make sure it runs after build!
 task fabric_publishModrinth (type: TaskModrinthUpload){
+    String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
     modrinth {
         token = "$System.env.MODRINTH_KEY"
-        projectId = '2rL16t1O'
+        projectId = "${project.modrinth_id}"
         versionName = "${archivesBaseName}-${project.version}"
         versionNumber = "${project.minecraft_version}-${project.version}-fabric"
         versionType = "${project.release_type}"
         uploadFile = remapJar
         changelog = changelogText
         gameVersions = ["${project.minecraft_version}"]
-        dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED)]
-        loaders = ['fabric']
+        loaders = ['fabric', 'quilt']
     }
 }
 
+
 task fabric_buildAndReleaseCurseforge {}
-tasks.fabric_checkForRefmap.mustRunAfter tasks.build
-tasks.fabric_publishCurseForge.mustRunAfter tasks.fabric_checkForRefmap
-tasks.fabric_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishCurseForge)
+tasks.fabric_publishCurseForge.mustRunAfter tasks.build
+tasks.fabric_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.fabric_publishCurseForge)
 
 task fabric_buildAndReleaseModrinth {}
-tasks.fabric_checkForRefmap.mustRunAfter tasks.build
-tasks.fabric_publishModrinth.mustRunAfter tasks.fabric_checkForRefmap
-tasks.fabric_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishModrinth)
+tasks.fabric_publishModrinth.mustRunAfter tasks.build
+tasks.fabric_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.fabric_publishModrinth)
 
 task fabric_buildAndReleaseModrinthAndCurseforge {}
-tasks.fabric_checkForRefmap.mustRunAfter tasks.build
-tasks.fabric_publishCurseForge.mustRunAfter tasks.fabric_checkForRefmap
+tasks.fabric_publishCurseForge.mustRunAfter tasks.build
 tasks.fabric_publishModrinth.mustRunAfter tasks.fabric_publishCurseForge
-tasks.fabric_buildAndReleaseModrinthAndCurseforge.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishCurseForge, tasks.fabric_publishModrinth)
+tasks.fabric_buildAndReleaseModrinthAndCurseforge.dependsOn(tasks.build, tasks.fabric_publishCurseForge, tasks.fabric_publishModrinth)

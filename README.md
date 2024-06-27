@@ -6,7 +6,7 @@
 [![Lastest][lastest]][geode-plus-file]
 
 </div>
-
+https://github.com/YeoXuHang/geode-plus/blob/master/page_images/line.png?raw=true
 <br />
 <br />
 <br />
