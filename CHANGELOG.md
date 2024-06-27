@@ -343,3 +343,10 @@
 * Wrappist pedestal can duplicate items
 ### Translations
 * zh_cn.json (Junnaturefox)
+
+# Changelog for 1.2.6
+* Mod Icon updated
+### Fixed
+* Budding Redstone and Echo can't obtain when silk touch is enable in Configuration file.
+### Translations
+* ru_ru.json (Alexander317)
